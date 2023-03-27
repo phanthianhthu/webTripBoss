@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --font: sans-serif; 
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.form-box
+{
+    background-image: url("../images/header-bg.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    background-size: cover;
+    height: 100vh;
+}
+.form-admin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.logo-name
+{
+    font-size: 2.5rem;
+    color: #FFF;
+    font-family: var(--font);
+    text-decoration: none;
+}
+.logout-admin{
+    font-size: 1.5rem;
+    color: #FFF;
+    font-family: var(--font);
+    text-decoration: none;
+}
+.form-management{
+    display: flex;
+    /* background-color: bisque; */
+    height: 80%;
+    justify-content: space-between;
+    padding-right: 250px;
+
+}
+.form-group-management{
+    display: block;
+    height: 100%;
+    width: 200px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: violet; */
+    backdrop-filter: blur(3px);
+    backdrop-filter: contrast(100%);
+    box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.3);
+    margin: 10px;
+}
+.management{
+    font-size: 1.5rem;
+    font-family: var(--font);
+    text-decoration: none;
+    color: #FFF;
+}
+.management > p{
+    height: 50px;
+}
+
+
+.management:hover{
+    color: blue;
+}
+.form-data{
+    display: block;
+    height: 100%;
+    width: 800px;
+    padding: 15px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: violet; */
+    backdrop-filter: blur(2px);
+    backdrop-filter: contrast(100%);
+    box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.2);
+}
+.text-title{
+    font-size: 2rem;
+    color: #FFF;
+    font-family: var(--font);
+    text-decoration: none;
+    height: 50px;
+    padding-left: 300px;
+    padding-right: 100px;
+    padding-top: 10px;
+}
+.add-data{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    width: 10%;
+    height: 30px;
+    background-color: #1ec6b6;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.table-header{
+    display: flex;
+    gap: 50px;
+    justify-content: space-around;
+    width: 500px;
+
+}
+.table-form{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tb-cell{
+    color: #FFF;
+    font-size: 1.5rem;
+    font-family: var(--font);
+    white-space: nowrap;
+    text-align: center;
+    width: 180px;
+}
