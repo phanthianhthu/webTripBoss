@@ -8,24 +8,22 @@
         <th class="text-center">Place</th>
         <th class="text-center">Description</th>
         <th class="text-center">Price</th>
-        <th class="text-center">Category</th>
         <th class="text-center" colspan="2">Action</th>
       </tr>
     </thead>
     <?php
     include_once "../config/dbconnect.php";
-    $sql = "SELECT * from trips, tripcategories WHERE trips.cateId=tripcategories.cateId";
+    $sql = "SELECT * from trips";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
     ?>
         <tr>
-          <td><img height='100px' src='<?= $row["tripsImage"] ?>'></td>
+          <td><img height='100px' src='./controller/uploads/<?= $row["tripsImage"] ?>'></td>
           <td><?= $row["tripsName"] ?></td>
           <td><?= $row["place"] ?></td>
           <td><?= $row["tripDesc"] ?></td>
           <td><?= $row["price"] ?></td>
-          <td><?= $row["cateName"] ?></td>
           <td><button class="btn btn-primary" style="height:40px" onclick="variationEditForm('<?= $row['tripId '] ?>')">Edit</button></td>
           <td><button class="btn btn-danger" style="height:40px" onclick="tripsDelete('<?= $row['tripId '] ?>')">Delete</button></td>
         </tr>
@@ -51,11 +49,11 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <form enctype='multipart/form-data' id='formadd' action="./controller/addTripsController.php" method="POST">
+          <form enctype='multipart/form-data' id='form' action="./controller/addTripsController.php" method="POST">
 
             <div class="form-group">
               <label for="file">Choose Image:</label>
-              <input type="file" class="form-control-file" name='image' id="image">
+              <input type="file" class="form-control-file" name='image' id="image" required>
             </div>
             <div class="form-group">
               <label>Trip Name:</label>
@@ -79,7 +77,7 @@
             </div>
             <div class="form-group">
               <label>Category:</label>
-              <select id="tr_cate" name='tr_cate' class="form-control" required>
+              <select id="tr_cate" name='tr_cateTrip' class="form-control" required>
                 <option disabled selected>Select category</option>
                 <?php
 
@@ -92,10 +90,11 @@
                   }
                 }
                 ?>
+                
               </select>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-secondary" id="insert" style="height:40px">Add new trips</button>
+              <button type="submit" class="btn btn-secondary" id="upload" style="height:40px">Add new trips</button>
             </div>
           </form>
 
@@ -104,13 +103,14 @@
           <button type="button" class="btn btn-default" data-dismiss="modal" style="height:40px">Close</button>
         </div>
       </div>
-
+      <div id="err"></div>
+      <hr>        
     </div>
   </div>
 
   <script>
     $(document).ready(function(e) {
-      $("#formadd").on('insert', (function(e) {
+      $("#form").on('upload', (function(e) {
         e.preventDefault();
         $.ajax({
           url: "./controller/addTripsController.php",
@@ -130,7 +130,6 @@
             } else {
               // view uploaded file.
               $('form').trigger('reset');
-              showTrips();
             }
           },
           error: function(e) {
@@ -140,6 +139,7 @@
       }));
     });
   </script>
+
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </div>

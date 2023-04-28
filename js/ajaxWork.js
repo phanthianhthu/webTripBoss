@@ -1,14 +1,14 @@
 
 function showBlogs(){  
-    $.ajax({
-        url:"./adminview/viewBlog.php",
-        method:"post",
-        data:{record:1},
-        success:function(data){
-            $('.allContent-section').html(data);
-        }
-    });
-}
+     $.ajax({
+         url:"./adminview/viewBlog.php",
+         method:"post",
+         data:{record:1},
+         success:function(data){
+             $('.allContent-section').html(data);
+         }
+     });
+ }
 function showBooking(){  
     $.ajax({
         url:"./adminview/viewBooking.php",
@@ -115,7 +115,18 @@ function addCate () {
 //edit cate data
 function cateEditForm(id){
     $.ajax({
-        url:"./controller/updateFormCategory.php",
+        url:"./adminview/updateFormCategory.php",
+        method:"post",
+        data:{record:id},
+        success:function(data){
+            $('.allContent-section').html(data);
+        }
+    });
+}
+
+function blogsEditForm(id){
+    $.ajax({
+        url:"./adminview/updateBlogsForm.php",
         method:"post",
         data:{record:id},
         success:function(data){
@@ -171,26 +182,26 @@ function blogsDelete(id){
 
 
 //update cate after submit
-function updateCate(){
-    var c_name = $('#c_name').val();
-    var c_desc = $('#c_desc').val();
-    var fd = new FormData();
-    fd.append('c_name', c_name);
-    fd.append('c_desc', c_desc);
+// function updateCate(){
+//     var c_name = $('#c_name').val();
+//     var c_desc = $('#c_desc').val();
+//     var fd = new FormData();
+//     fd.append('c_name', c_name);
+//     fd.append('c_desc', c_desc);
    
-    $.ajax({
-      url:'./controller/updateCategory.php',
-      method:'post',
-      data:fd,
-      processData: false,
-      contentType: false,
-      success: function(data){
-        alert('Update Success.');
-        $('form').trigger('reset');
-        showCategory();
-      }
-    });
-}
+//     $.ajax({
+//       url:'./controller/updateCategory.php',
+//       method:'post',
+//       data:fd,
+//       processData: false,
+//       contentType: false,
+//       success: function(data){
+//         alert('Update Success.');
+//         $('form').trigger('reset');
+//         showCategory();
+//       }
+//     });
+// }
 
 
 

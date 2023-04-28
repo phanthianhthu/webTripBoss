@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
             include "./adminheader.php";
             include "./admin_sidebar.php";
            
-            include_once "./config/dbconnect.php";
+            include_once "./config/dbconnect.php"; 
         ?>
 
     <div id="main-content" class="container allContent-section py-4">
@@ -40,34 +41,13 @@
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="card">
-                    <i class="fa fa-th-large mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total Category</h4>
-                    <h5 style="color:white;">
-                   <?php
-                       
-                       $sql="SELECT * from tripcategories";
-                       $result=$conn-> query($sql);
-                       $count=0;
-                       if ($result-> num_rows > 0){
-                           while ($row=$result-> fetch_assoc()) {
-                   
-                               $count=$count+1;
-                           }
-                       }
-                       echo $count;
-                   ?> 
-                   </h5>
-                </div>
-            </div>
-            <div class="col-sm-3">
             <div class="card">
                     <i class="fa fa-th mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total Booking</h4>
+                    <h4 style="color:white;">Total Blogs</h4>
                     <h5 style="color:white;">
                     <?php
                        
-                       $sql="SELECT * from booking";
+                       $sql="SELECT * from blogs";
                        $result=$conn-> query($sql);
                        $count=0;
                        if ($result-> num_rows > 0){
@@ -89,6 +69,27 @@
                    <?php
                        
                        $sql="SELECT * from trips";
+                       $result=$conn-> query($sql);
+                       $count=0;
+                       if ($result-> num_rows > 0){
+                           while ($row=$result-> fetch_assoc()) {
+                   
+                               $count=$count+1;
+                           }
+                       }
+                       echo $count;
+                   ?> 
+                   </h5>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <i class="fa fa-list mb-2" style="font-size: 70px;"></i>
+                    <h4 style="color:white;">Total Booking</h4>
+                    <h5 style="color:white;">
+                   <?php
+                       
+                       $sql="SELECT * from booking";
                        $result=$conn-> query($sql);
                        $count=0;
                        if ($result-> num_rows > 0){

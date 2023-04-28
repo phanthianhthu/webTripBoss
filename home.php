@@ -129,7 +129,7 @@
         <!-- end of featured section -->
 
         <!-- services section -->
-        <section id = "services" class = "py-4">
+        <!-- <section id = "services" class = "py-4">
             <div class = "container">
                 <div class = "title-wrap">
                     <span class = "sm-title">know about services that we offer</span>
@@ -165,11 +165,11 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- end of services section -->
 
         <!-- testimonials section -->
-        <section id = "testimonials" class = "py-4">
+        <!-- <section id = "testimonials" class = "py-4">
             <div class = "container">
                 <div class = "title-wrap">
                     <span class = "sm-title">what our clients say about us</span>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- end of testimonials section -->
 
         <!-- video section -->

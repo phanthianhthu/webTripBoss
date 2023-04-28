@@ -8,9 +8,8 @@
     $numberOfRow = mysqli_num_rows($qry);
     if ($numberOfRow > 0) {
         while ($row1 = mysqli_fetch_array($qry)) {
-            $catID = $row1["cateId"];
     ?>
-            <form id="update-Items" onsubmit="updateCate()" enctype='multipart/form-data'>
+            <form id="update-Items" enctype='multipart/form-data' method="post" action="./controller/updateCategory.php">
                 <div class="form-group">
                     <input type="text" class="form-control" id="cateId" value="<?= $row1['cateId'] ?>" hidden>
                 </div>
@@ -30,5 +29,29 @@
     }
         ?>
             </form>
+
+            <script>
+          $(document).ready(function() {
+            $('#btnUpdate').click(function() {
+              var cateIdEdit = $('#cateId').val();
+              var cateNameEdit = $('#c_name').val();
+              var cateDesEdit = $('#c_desc').val();
+            //   console.log(cateNameEdit, cateDesEdit);
+              
+              $.ajax({
+                url: './controller/updateCategory.php',
+                type: 'POST',
+                data: { 
+                  cateIdEd: cateIdEdit, 
+                  cateNameEd: cateNameEdit,
+                  cateDesEd: cateDesEdit
+                },
+                success: function(data) {
+                  alert(data);
+                }
+              });
+            });
+          });
+        </script>
 
 </div>

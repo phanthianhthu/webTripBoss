@@ -1,19 +1,19 @@
 <?php
     include_once "../config/dbconnect.php";
+    if (isset($_POST['cateIdEd']) || isset($_POST['cateNameEd']) || isset($_POST['cateDesEd'])) {
 
-    $ID=$_POST['cateId'];
-    $c_name= $_POST['c_name'];
-    $c_desc= $_POST['c_desc'];
-   
-    $updateItem = mysqli_query($conn,"UPDATE tripcategories SET 
-        cateId=$ID,
-        cateName=$c_name, 
-        cateDesc=$c_desc
-        WHERE cateId=$ID");
+        $cateIdEdit = $_POST['cateIdEd'];
+        $nameCateEdit = $_POST['cateNameEd'];
+        $descCateEdit = $_POST['cateDesEd'];
 
+        $insertUserQuery = mysqli_query($conn, "UPDATE tripcategories SET cateName='$nameCateEdit',cateDesc='$descCateEdit' WHERE cateId ='$cateIdEdit' ");
 
-    if($updateItem)
-    {
-        echo "true";
+        // if (!$insertUserQuery) {
+        //     echo '<script>"Category Updated Successfully"</script>';
+        // } else {
+        //     echo '<script>"Category Updated Failed"</script>';
+        // }
     }
+    header("Location: ../admin_index.php");
+
 ?>

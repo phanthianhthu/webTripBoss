@@ -1,4 +1,4 @@
-<div>
+<div class="viewBlog">
   <h2>Management Blog</h2>
   <table class="table ">
     <thead>
@@ -18,11 +18,11 @@
       while ($row = $result->fetch_assoc()) {
     ?>
         <tr>
-          <td><img height='100px' src='<?= $row["blogImage"] ?>'/></td>
+          <td><img height='100px' src='./controller/uploads/<?= $row["blogImage"] ?>'/></td>
           <td><?= $row["blogName"] ?></td>
           <td><?= $row["blogsDesc"] ?></td>
           <td><?= $row["blogAuthor"] ?></td>
-          <td><button class="btn btn-primary" style="height:40px" onclick="blogsDelete('<?= $row['blogId'] ?>')">Edit</button></td>
+          <td><button class="btn btn-primary" style="height:40px" onclick="blogsEditForm('<?= $row['blogId'] ?>')">Edit</button></td>
           <td><button class="btn btn-danger" style="height:40px" onclick="blogsDelete('<?= $row['blogId'] ?>')">Delete</button></td>
         </tr>
     <?php

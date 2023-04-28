@@ -18,6 +18,10 @@
         <link rel = "stylesheet" href = "css/responsive.css">
     </head>
     <body>
+    <?php
+    session_start();
+    include_once "./config/dbconnect.php"; 
+  ?>
         <!-- navbar  -->
         <nav class = "navbar">
             <div class = "container flex">
@@ -51,9 +55,23 @@
                         <li class = "nav-item">
                             <a href = "?page=booknow" class = "nav-link">Book Now</a>
                         </li>
+                        <?php
+                            if (isset($_SESSION['us']) && $_SESSION['admin']==0){
+                                echo '<li class = "nav-item">
+                                    <a href = "?page=logout" class = "nav-link">Logout</a>
+                                </li>'
+                        ?> 
+                        <?php
+                            }
+                            else
+                            {
+                        ?>
                         <li class = "nav-item">
                             <a href = "?page=login" class = "nav-link">Login</a>
                         </li>
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -86,7 +104,11 @@
             elseif($page == 'login')
             {
                 include_once("login.php");
-            } 
+            }
+            elseif($page == 'logout')
+            {
+                include_once("logout.php");
+            }  
         }
         else {
             include 'home.php';

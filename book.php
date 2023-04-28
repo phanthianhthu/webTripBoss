@@ -29,7 +29,7 @@
                 <h1>Book Now</h1>
                 <section class="booking">
                     <h1 class="heading-title">book your trip!</h1>
-                    <form action="book.php" method="post" class="booking-form">
+                    <form action="./controller/booking.php" method="post" class="booking-form">
                 </section>
 
                 <div class="tourBooking">
@@ -37,41 +37,41 @@
                         <div class="book1">
                             <div class="inputBox">
                                 <span class="name-input">Name </span>
-                                <input type="text" class="form-control name" placeholder="Enter your name">
+                                <input type="text" class="form-control name" name="inputName" placeholder="Enter your name">
                             </div>
                             <div class="inputBox">
                                 <span class="name-input">Email </span>
-                                <input type="email" class="form-control name" placeholder="Enter your email">
+                                <input type="email" class="form-control name" name="inputEmail" placeholder="Enter your email">
                             </div>
                             <div class="inputBox">
                                 <span class="name-input">Phone </span>
-                                <input type="phone" class="form-control name" placeholder="Enter your number">
+                                <input type="phone" class="form-control name" name="inputPhone" placeholder="Enter your number">
                             </div>
                             <div class="inputBox">
                                 <span class="name-input">Address </span>
-                                <input type="text" class="form-control name" placeholder="Enter your address">
+                                <input type="text" class="form-control name" name="inputAddr" placeholder="Enter your address">
                             </div>
                         </div>
                         <div class="book2">
                             <div class="inputBox">
                                 <span class="name-input">Where to </span>
-                                <input type="text" class="form-control name" placeholder="Place you want to visit">
+                                <input type="text" class="form-control name" name="inputWhereTo" placeholder="Place you want to visit">
                             </div>
                             <div class="inputBox">
                                 <span class="name-input">How many </span>
-                                <input type="number" class="form-control name" placeholder="Number of guests">
+                                <input type="number" class="form-control name" name="inputNumGuest" placeholder="Number of guests">
                             </div>
                             <div class="inputBox">
                                 <span class="name-input">Arrivals </span>
-                                <input type="date" class="form-control name">
+                                <input type="date" class="form-control name" name="inputArivals">
                             </div>
                             <div class="inputBox">
                                 <span class="name-input">Leaving </span>
-                                <input type="date" class="form-control name">
+                                <input type="date" class="form-control name" name="inputLeaving">
                             </div>
                         </div>
                     </div>
-                    <input type="submit" name="bookSubmit" title="Submit" class="submitBtn" />
+                    <input type="submit" name="bookSubmit" value="Submit" class="submitBtn" />
                 </div>
             </div>
     </header>

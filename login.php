@@ -19,6 +19,9 @@
  </head>
 </head>
 <body>
+<?php
+    include_once "./config/dbconnect.php"; 
+  ?>
      <!-- header -->
         <header class = "flex header-sm">
             <div class = "container">                 
@@ -31,22 +34,60 @@
                 <button type='button'onclick='register()'class='toggle-btn'>Register</button>
             </div>
             <!--creating login form-->
-            <form id='login'class='input-group-login'>
-            <input type='email' class='input-field'placeholder='Email Id'required>
-            <input type='password' class='input-field'placeholder='Enter Password'required>
+            <form id='login'class='input-group-login' method="post">
+            <input type='email' class='input-field'name="inputEmail" placeholder='Email'required>
+            <input type='password' class='input-field' name="inputPass" placeholder='Enter Password'required>
             <input type='checkbox'class='checkbox'>
             <span class="checkbox-txt">Remember Password</span> 
-            <button type='submit'class='submit-btn'>Login</button>
+            <button type='submit'class='submit-btn' name="btnLogin">Login</button>
             </form>
+            <?php
+
+                if (isset($_POST['btnLogin'])) {
+                $us = $_POST['inputEmail'];
+                $pa = $_POST['inputPass'];
+                $err = "";
+                if ($us == "") {
+                    $err .= "<script> alert('Enter Email, please')</script>";
+                }
+                if ($pa == "") {
+                    $err .= "<script> alert('Enter Password, please')</script>";
+                }
+                if ($err != "") {
+                    echo $err;
+                } else {
+                    $res = mysqli_query($conn, "SELECT * FROM users WHERE email='$us' AND password='$pa'")
+                    or die(mysqli_errno($conn));
+                    $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+
+                    if (mysqli_num_rows($res) == 1) {
+                    $_SESSION["us"] = $us;
+                    $_SESSION["admin"] = $row["status"];
+                    echo "<script> alert('Login successfully')</script>";
+                    if (isset($_SESSION['us']) && $_SESSION['admin']==0){
+                        echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
+                    }elseif (isset($_SESSION['us']) && $_SESSION['admin']==1){
+                        echo '<meta http-equiv="refresh" content="0;URL=admin_index.php"/>';
+                    }
+                    } else {
+                    echo "<script>alert('You loged in fail');</script>";
+                        
+                    // echo '<meta http-equiv="refresh" content="0;URL=login.php"/>';
+
+                    }
+                }
+                }
+                ?>
+
             <!--creating the registration form-->
             <form id='register'class='input-group-register'>
-                <input type='text' class='input-field' placeholder='Name'required>
-                <input type='email' class='input-field'placeholder='Email Id'required>
-                <input type='password' class='input-field'placeholder='Enter Password'required>
-                <input type='password' class='input-field'placeholder='Confirm Password'required>
+                <input type='text' class='input-field' name="re_Name" placeholder='Name'required>
+                <input type='email' class='input-field' name="re_Email" placeholder='Email'required>
+                <input type='password' class='input-field' name="re_Pass" placeholder='Enter Password'required>
+                <input type='password' class='input-field' name="re_ComfiPass" placeholder='Confirm Password'required>
                 <input type='checkbox'class='checkbox' >
                 <span class="checkbox-txt">I agree to the terms and conditions</span> 
-                <button type='submit'class='submit-btn'>Register</button>
+                <button type='submit'class='submit-btn' name="upload">Register</button>
                 </form>
         </div>
     </div>
