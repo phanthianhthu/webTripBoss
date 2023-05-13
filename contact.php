@@ -18,6 +18,27 @@
         <link rel = "stylesheet" href = "css/responsive.css">
     </head>
     <body>
+    <?php
+    include_once "./config/dbconnect.php";
+
+    if (isset($_POST['send'])) {
+        $mess = $_POST['mess'];
+
+        // Thực hiện câu truy vấn INSERT để thêm thông tin đặt chỗ vào cơ sở dữ liệu
+        $insertQuery = "INSERT INTO contacts(contactDesc) 
+                        VALUES ('$mess')";
+        $insertResult = mysqli_query($conn, $insertQuery);
+
+        if ($insertResult) {
+            echo "<script>alert('Successful Send')</script>";
+            // Thực hiện các hành động khác sau khi đặt chỗ thành công
+            // Ví dụ: chuyển hướng người dùng đến trang xác nhận đặt chỗ
+            echo '<meta http-equiv="refresh" content="0;URL=index.php?page=contact"/>';
+        } else {
+            echo "<script>alert('Send failed. Please try again.')</script>";
+        }
+    }
+    ?>
         <!-- header -->
         <header class = "flex header-sm">
             <div class = "container">
@@ -39,9 +60,9 @@
 
                 <div class = "contact-row">
                     <div class = "contact-left">
-                        <form class = "contact-form">
-                            <textarea rows = "4" class = "form-control" placeholder="Your message" maxlength="1000" style = "resize: none;"></textarea>
-                            <input type = "submit" class = "btn" value = "Send message">
+                        <form class = "contact-form" method="post">
+                            <textarea rows = "4" class = "form-control" placeholder="Your message" name="mess" maxlength="1000" style = "resize: none;"></textarea>
+                            <input type = "submit" class = "btn" value = "Send message" name="send">
                         </form>
                     </div>
                     <div class = "contact-right my-2">

@@ -1,36 +1,40 @@
 <div class="container p-5">
 
-    <h4>Edit Blogs</h4>
+    <h4>Edit Trip</h4>
     <?php
     include_once "../config/dbconnect.php";
     $ID = $_POST['record'];
-    $qry = mysqli_query($conn, "SELECT * FROM blogs WHERE blogId='$ID'");
+    $qry = mysqli_query($conn, "SELECT * FROM trips WHERE tripId='$ID'");
     $numberOfRow = mysqli_num_rows($qry);
     if ($numberOfRow > 0) {
         while ($row1 = mysqli_fetch_array($qry)) {
     ?>
             <form id="update-Items" enctype='multipart/form-data' method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="blogId" value="<?= $row1['blogId'] ?>" hidden>
+                    <input type="text" class="form-control" id="tripId" value="<?= $row1['tripId'] ?>" hidden>
                 </div>
                 <div class="form-group">
                   <label for="file">Choose Image:</label>
                   <input type="file" class="form-control-file" name="image" id="file">
                 </div>
                 <div class="form-group">
-                    <label for="name">Blog Name:</label>
-                    <input type="text" class="form-control" id="blog_name" value="<?= $row1['blogName'] ?>">
+                    <label for="name">Trip Name:</label>
+                    <input type="text" class="form-control" id="trip_name" value="<?= $row1['tripsName'] ?>">
+                </div>
+                <div class="form-group">
+                    <label for="name">Place:</label>
+                    <input type="text" class="form-control" id="trip_name" value="<?= $row1['place'] ?>">
                 </div>
                 <div class="form-group">
                     <label for="desc">Description:</label>
-                    <input type="text" class="form-control" id="blog_desc" value="<?= $row1['blogsDesc'] ?>">
+                    <input type="text" class="form-control" id="trip_desc" value="<?= $row1['tripDesc'] ?>">
                 </div>
                 <div class="form-group">
-                    <label for="desc">Blog Author:</label>
-                    <input type="text" class="form-control" id="blog_author" value="<?= $row1['blogAuthor'] ?>">
+                    <label for="desc">Price:</label>
+                    <input type="text" class="form-control" id="blog_author" value="<?= $row1['price'] ?>">
                 </div>
                 <div class="form-group">
-                    <button type="submit" style="height:40px" id="btnUpdate" class="btn btn-primary">Update Blog</button>
+                    <button type="submit" style="height:40px" id="btnUpdate" class="btn btn-primary">Update Trip</button>
                 </div>
         <?php
         }

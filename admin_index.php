@@ -85,6 +85,27 @@
             <div class="col-sm-3">
                 <div class="card">
                     <i class="fa fa-list mb-2" style="font-size: 70px;"></i>
+                    <h4 style="color:white;">Total category</h4>
+                    <h5 style="color:white;">
+                   <?php
+                       
+                       $sql="SELECT * from tripcategories";
+                       $result=$conn-> query($sql);
+                       $count=0;
+                       if ($result-> num_rows > 0){
+                           while ($row=$result-> fetch_assoc()) {
+                   
+                               $count=$count+1;
+                           }
+                       }
+                       echo $count;
+                   ?> 
+                   </h5>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <i class="fa fa-list mb-2" style="font-size: 70px;"></i>
                     <h4 style="color:white;">Total Booking</h4>
                     <h5 style="color:white;">
                    <?php

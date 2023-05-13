@@ -21,7 +21,37 @@
 <body>
 <?php
     include_once "./config/dbconnect.php"; 
-  ?>
+
+    if (isset($_POST['upload'])) {
+        $fullName = $_POST['re_Name'];
+        $email = $_POST['re_Email'];
+        $password = $_POST['re_Pass'];
+        $dayOfBirth = $_POST['re_day'];
+        $phone = $_POST['re_phone'];
+        $description = $_POST['re_desc'];
+
+        // Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu chưa
+        $checkEmailQuery = "SELECT * FROM users WHERE email='$email'";
+        $checkEmailResult = mysqli_query($conn, $checkEmailQuery);
+        if (mysqli_num_rows($checkEmailResult) > 0) {
+            echo "<script>alert('Email already exists. Please use a different email address.')</script>";
+        } else {
+            // Thực hiện câu truy vấn INSERT để thêm người dùng mới vào cơ sở dữ liệu
+            $insertQuery = "INSERT INTO users (fullName, email, password, DOB, phone, usersDesc) 
+                            VALUES ('$fullName', '$email', '$password', '$dayOfBirth', '$phone', '$description')";
+            $insertResult = mysqli_query($conn, $insertQuery);
+
+            if ($insertResult) {
+                echo "<script>alert('Registration Successfully')</script>";
+                // Chuyển hướng người dùng đến trang đăng nhập sau khi đăng ký thành công
+                echo '<meta http-equiv="refresh" content="0;URL=index.php?page=login"/>';
+            } else {
+                echo "<script>alert('Registration failed. Please try again.')</script>";
+            }
+        }
+    }
+?>
+
      <!-- header -->
         <header class = "flex header-sm">
             <div class = "container">                 
@@ -80,15 +110,17 @@
                 ?>
 
             <!--creating the registration form-->
-            <form id='register'class='input-group-register'>
-                <input type='text' class='input-field' name="re_Name" placeholder='Name'required>
+            <form id='register'class='input-group-register' method="POST">
+                <input type='text' class='input-field' name="re_Name" placeholder='FullName'required>
                 <input type='email' class='input-field' name="re_Email" placeholder='Email'required>
                 <input type='password' class='input-field' name="re_Pass" placeholder='Enter Password'required>
-                <input type='password' class='input-field' name="re_ComfiPass" placeholder='Confirm Password'required>
-                <input type='checkbox'class='checkbox' >
-                <span class="checkbox-txt">I agree to the terms and conditions</span> 
+                <input type='date' class='input-field' name="re_day" placeholder='Day of birth'required>
+                <input type='phone' class='input-field' name="re_phone" placeholder='Phone'>
+                <input type='text' class='input-field' name="re_desc" placeholder='Description'>
                 <button type='submit'class='submit-btn' name="upload">Register</button>
-                </form>
+            </form>
+
+
         </div>
     </div>
     <!--the first script code is for login 

@@ -52,6 +52,16 @@ function showUsers(){
         }
     });
 }
+function showContact(){
+    $.ajax({
+        url:"./adminview/viewContact.php",
+        method:"post",
+        data:{record:1},
+        success:function(data){
+            $('.allContent-section').html(data);
+        }
+    });
+}
 
 
 //add product data
@@ -113,22 +123,33 @@ function addCate () {
 }
 
 //edit cate data
-function cateEditForm(id){
+function cateEditForm(cateId){
     $.ajax({
         url:"./adminview/updateFormCategory.php",
         method:"post",
-        data:{record:id},
+        data:{record:cateId},
         success:function(data){
             $('.allContent-section').html(data);
         }
     });
 }
 
-function blogsEditForm(id){
+function blogsEditForm(blogId){
     $.ajax({
         url:"./adminview/updateBlogsForm.php",
         method:"post",
-        data:{record:id},
+        data:{record:blogId},
+        success:function(data){
+            $('.allContent-section').html(data);
+        }
+    });
+}
+
+function tripsEditForm(tripId){
+    $.ajax({
+        url:"./adminview/updateTripForm.php",
+        method:"post",
+        data:{record:tripId},
         success:function(data){
             $('.allContent-section').html(data);
         }
@@ -138,46 +159,94 @@ function blogsEditForm(id){
 
 
 //delete category data
-function categoryDelete(id){
+function categoryDelete(cateId){
+    if (confirm("Are you sure you want to delete this category?")) {
     $.ajax({
         url:"./controller/catDeleteController.php",
         method:"post",
-        data:{record:id},
+        data:{record:cateId},
         success:function(data){
             alert('Category Successfully deleted');
             $('form').trigger('reset');
             showCategory();
         }
     });
+    } else {
+        return false;
+    }
 }
 
+
 //delete trip data
-function tripsDelete(id){
+function tripsDelete(tripId){
+    if (confirm("Are you sure you want to delete this trip?")) {
     $.ajax({
         url:"./controller/deleteTripsController.php",
         method:"post",
-        data:{record:id},
+        data:{record:tripId},
         success:function(data){
-            alert('Size Successfully deleted');
+            alert('Trip Successfully deleted');
             $('form').trigger('reset');
             showTrips();
         }
     });
+    }else {
+    return false;
+    }
 }
 
 
 //delete blogs data
-function blogsDelete(id){
+function blogsDelete(blogId){
+    if (confirm("Are you sure you want to delete this blog?")) {
     $.ajax({
         url:"./controller/deleteBlogsController.php",
         method:"post",
-        data:{record:id},
+        data:{record:blogId},
         success:function(data){
             alert('Successfully deleted');
             $('form').trigger('reset');
             showBlogs();
         }
     });
+    }else {
+        return false;
+        }
+}
+
+//delete booking data
+function bookingDelete(bookingId){
+    if (confirm("Are you sure you want to delete this booking?")) {
+    $.ajax({
+        url:"./controller/deleteBookingController.php",
+        method:"post",
+        data:{record:bookingId},
+        success:function(data){
+            alert('Successfully deleted');
+            $('form').trigger('reset');
+            showBooking();
+        }
+    });
+    }else {
+        return false;
+        }
+}
+//delete contact data
+function contactDelete(contactId){
+    if (confirm("Are you sure you want to delete this contact?")) {
+    $.ajax({
+        url:"./controller/deleteContactController.php",
+        method:"post",
+        data:{record:contactId},
+        success:function(data){
+            alert('Successfully deleted');
+            $('form').trigger('reset');
+            showBooking();
+        }
+    });
+    }else {
+        return false;
+        }
 }
 
 

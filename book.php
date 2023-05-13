@@ -22,6 +22,35 @@
 </head>
 
 <body>
+<?php
+include_once "./config/dbconnect.php";
+
+if (isset($_POST['bookSubmit'])) {
+    $name = $_POST['inputName'];
+    // $email = $_POST['inputEmail'];
+    $phone = $_POST['inputPhone'];
+    $address = $_POST['inputAddr'];
+    $whereTo = $_POST['inputWhereTo'];
+    $numGuest = $_POST['inputNumGuest'];
+    $arrivals = $_POST['inputArivals'];
+    $leaving = $_POST['inputLeaving'];
+
+    // Thực hiện câu truy vấn INSERT để thêm thông tin đặt chỗ vào cơ sở dữ liệu
+    $insertQuery = "INSERT INTO booking (name, phone, address, whereTo, numberOfGuests, arrivalsDate, leavingDate) 
+                    VALUES ('$name', '$phone', '$address', '$whereTo', '$numGuest', '$arrivals', '$leaving')";
+    $insertResult = mysqli_query($conn, $insertQuery);
+
+    if ($insertResult) {
+        echo "<script>alert('Successful booking')</script>";
+        // Thực hiện các hành động khác sau khi đặt chỗ thành công
+        // Ví dụ: chuyển hướng người dùng đến trang xác nhận đặt chỗ
+        echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
+    } else {
+        echo "<script>alert('Reservation failed. Please try again.')</script>";
+    }
+}
+?>
+
     <!-- header -->
     <header class="flex header-sm">
         <div class="container">
@@ -29,7 +58,7 @@
                 <h1>Book Now</h1>
                 <section class="booking">
                     <h1 class="heading-title">book your trip!</h1>
-                    <form action="./controller/booking.php" method="post" class="booking-form">
+                    <form action="" method="post" class="booking-form">
                 </section>
 
                 <div class="tourBooking">
@@ -39,10 +68,10 @@
                                 <span class="name-input">Name </span>
                                 <input type="text" class="form-control name" name="inputName" placeholder="Enter your name">
                             </div>
-                            <div class="inputBox">
+                            <!-- <div class="inputBox">
                                 <span class="name-input">Email </span>
                                 <input type="email" class="form-control name" name="inputEmail" placeholder="Enter your email">
-                            </div>
+                            </div> -->
                             <div class="inputBox">
                                 <span class="name-input">Phone </span>
                                 <input type="phone" class="form-control name" name="inputPhone" placeholder="Enter your number">
@@ -51,12 +80,12 @@
                                 <span class="name-input">Address </span>
                                 <input type="text" class="form-control name" name="inputAddr" placeholder="Enter your address">
                             </div>
-                        </div>
-                        <div class="book2">
                             <div class="inputBox">
                                 <span class="name-input">Where to </span>
                                 <input type="text" class="form-control name" name="inputWhereTo" placeholder="Place you want to visit">
                             </div>
+                        </div>
+                        <div class="book2">
                             <div class="inputBox">
                                 <span class="name-input">How many </span>
                                 <input type="number" class="form-control name" name="inputNumGuest" placeholder="Number of guests">

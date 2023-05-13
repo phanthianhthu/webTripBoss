@@ -24,8 +24,8 @@
           <td><?= $row["place"] ?></td>
           <td><?= $row["tripDesc"] ?></td>
           <td><?= $row["price"] ?></td>
-          <td><button class="btn btn-primary" style="height:40px" onclick="variationEditForm('<?= $row['tripId '] ?>')">Edit</button></td>
-          <td><button class="btn btn-danger" style="height:40px" onclick="tripsDelete('<?= $row['tripId '] ?>')">Delete</button></td>
+          <td><button class="btn btn-primary" style="height:40px" onclick="tripsEditForm('<?= $row['tripId']?>')">Edit</button></td>
+          <td><button class="btn btn-danger" style="height:40px" onclick="tripsDelete('<?= $row['tripId']?>')">Delete</button></td>
         </tr>
     <?php
       }

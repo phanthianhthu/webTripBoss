@@ -52,13 +52,13 @@
                         <li class = "nav-item">
                             <a href = "?page=contact" class = "nav-link">Contact</a>
                         </li>
-                        <li class = "nav-item">
-                            <a href = "?page=booknow" class = "nav-link">Book Now</a>
-                        </li>
                         <?php
                             if (isset($_SESSION['us']) && $_SESSION['admin']==0){
                                 echo '<li class = "nav-item">
-                                    <a href = "?page=logout" class = "nav-link">Logout</a>
+                                <a href = "?page=booknow" class = "nav-link">Book Now</a>
+                                </li>
+                                <li class = "nav-item">
+                                <a href = "?page=logout" class = "nav-link">Logout</a>
                                 </li>'
                         ?> 
                         <?php

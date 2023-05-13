@@ -12,7 +12,8 @@
     <a href="#booking"   onclick="showBooking()" ><i class="fa fa-th-large"></i> Management Booking</a>
     <a href="#trip"   onclick="showTrips()" ><i class="fa fa-th-list"></i> Management Trip</a>    
     <a href="#blog"   onclick="showBlogs()" ><i class="fa fa-th"></i> Management Blog</a>
-    <!-- <a href="#category"   onclick="showCategory()" ><i class="fa fa-th-large"></i>Management Category</a> -->
+    <a href="#category"   onclick="showCategory()" ><i class="fa fa-th-large"></i> Management Category</a>
+    <a href="#contact"   onclick="showContact()" ><i class="fa fa-th"></i> Management contact</a>
   
   <!---->
 </div>

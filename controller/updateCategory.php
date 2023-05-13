@@ -8,11 +8,13 @@
 
         $insertUserQuery = mysqli_query($conn, "UPDATE tripcategories SET cateName='$nameCateEdit',cateDesc='$descCateEdit' WHERE cateId ='$cateIdEdit' ");
 
-        // if (!$insertUserQuery) {
-        //     echo '<script>"Category Updated Successfully"</script>';
-        // } else {
-        //     echo '<script>"Category Updated Failed"</script>';
-        // }
+        if (!$insertUserQuery) {
+            echo "<script>alert('Category Updated Successfully')</script>";
+            // echo '<meta http-equiv="refresh" content="0;URL=../admin_index.php"/>';
+        } else {
+            echo "<script>alert('Category Updated Failed');</script>";
+            // echo '<meta http-equiv="refresh" content="0;URL=../admin_index.php"/>';
+        }
     }
     header("Location: ../admin_index.php");
 
