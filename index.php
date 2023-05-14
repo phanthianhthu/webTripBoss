@@ -40,9 +40,9 @@
                         <li class = "nav-item">
                             <a href = "index.php" class = "nav-link">Home</a>
                         </li>
-                        <li class = "nav-item">
+                        <!-- <li class = "nav-item">
                             <a href = "?page=gallery" class = "nav-link">Gallery</a>
-                        </li>
+                        </li> -->
                         <li class = "nav-item">
                             <a href = "?page=blog" class = "nav-link">Blog</a>
                         </li>

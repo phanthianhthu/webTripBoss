@@ -9,7 +9,7 @@
     if ($numberOfRow > 0) {
         while ($row1 = mysqli_fetch_array($qry)) {
     ?>
-            <form id="update-Items" enctype='multipart/form-data' method="post" action="./controller/updateCategory.php">
+            <form id="update-Items" enctype='multipart/form-data' method="post" action="">
                 <div class="form-group">
                     <input type="text" class="form-control" id="cateId" value="<?= $row1['cateId'] ?>" hidden>
                 </div>
@@ -53,5 +53,5 @@
             });
           });
         </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </div>

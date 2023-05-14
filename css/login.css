@@ -75,6 +75,8 @@
 
 .input-field::placeholder{
     color: #FFF;
+    font-family: 'Raleway', sans-serif;
+
 }
 
 .submit-btn

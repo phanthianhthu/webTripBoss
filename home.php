@@ -46,20 +46,24 @@
                 </div>
 
                 <div class = "featured-row">
+                    <?php
+                    include_once "./config/dbconnect.php";
+                    $sql="SELECT * from trips";
+                    $result=$conn-> query($sql);
+                    if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                    ?>
                     <div class = "featured-item my-2 shadow">
-                        <img src = "images/featured-reo-de-janeiro-brazil.jpg" alt = "featured place">
+                    <img src = './controller/uploads/<?php echo $row["tripsImage"];?>'>
                         <div class = "featured-item-content">
-                            <span>
-                                <i class = "fas fa-map-marker-alt"></i>
-                                Reo De Janeiro, Brazil
-                            </span>
+                            <span><i class = "fas fa-map-marker-alt"></i><?php echo $row["place"];?></span>
                             <div>
-                                <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
+                                <p class = "text"><?php echo $row["tripDesc"];?></p>
                             </div>
                         </div>
                     </div>
 
-                    <div class = "featured-item my-2 shadow">
+                    <!-- <div class = "featured-item my-2 shadow">
                         <img src = "images/featured-north-bondi-australia.jpg" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
@@ -83,9 +87,9 @@
                                 <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class = "featured-item my-2 shadow">
+                    <!-- <div class = "featured-item my-2 shadow">
                         <img src = "images/featured-khwaeng-wat-arun-thailand.jpg" alt = "featured place">
                         <div class = "featured-item-content">
                             <span>
@@ -122,7 +126,11 @@
                                 <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed dignissimos libero soluta illum, harum amet excepturi sit?</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </section>

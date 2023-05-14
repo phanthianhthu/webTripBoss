@@ -64,41 +64,6 @@ function showContact(){
 }
 
 
-//add product data
-// function addTrips(){
-//     $('#upload').click(function addTrips(){
-
-//     var tr_name=$('#tr_name').val();
-//     var tr_place=$('#tr_place').val();
-//     var tr_desc=$('#tr_desc').val();
-//     var tr_price=$('#tr_price').val();
-//     var tr_cate=$('#tr_cate').val();  
-//     var file=$('#file')[0].files[0];
-
-//     var fd = new FormData();
-//     fd.append('tr_name', tr_name);
-//     fd.append('tr_place', tr_place);
-//     fd.append('tr_desc', tr_desc);
-//     fd.append('tr_price', tr_price);
-//     fd.append('tr_cate', tr_cate);
-//     fd.append('file', file);
-//     $.ajax({
-//         url:"./controller/addTripsController.php",
-//         method:"post",
-//         async: false,
-//         data:fd,
-//         processData: false,
-//         cache: false,
-//         contentType: false,
-//         success: function(data){
-//             alert('Product Added successfully.');
-//             $('form').trigger('reset');
-//             showTrips();
-//         }
-//     });
-// });
-// }
-
 
 // //add cate
 function addCate () {
@@ -241,7 +206,7 @@ function contactDelete(contactId){
         success:function(data){
             alert('Successfully deleted');
             $('form').trigger('reset');
-            showBooking();
+            showContact();
         }
     });
     }else {
@@ -249,28 +214,6 @@ function contactDelete(contactId){
         }
 }
 
-
-//update cate after submit
-// function updateCate(){
-//     var c_name = $('#c_name').val();
-//     var c_desc = $('#c_desc').val();
-//     var fd = new FormData();
-//     fd.append('c_name', c_name);
-//     fd.append('c_desc', c_desc);
-   
-//     $.ajax({
-//       url:'./controller/updateCategory.php',
-//       method:'post',
-//       data:fd,
-//       processData: false,
-//       contentType: false,
-//       success: function(data){
-//         alert('Update Success.');
-//         $('form').trigger('reset');
-//         showCategory();
-//       }
-//     });
-// }
 
 
 

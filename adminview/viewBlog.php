@@ -5,6 +5,7 @@
       <tr>
         <th class="text-center">Blog Image</th>
         <th class="text-center">Blog Name</th>
+        <th class="text-center">Blog Title</th>
         <th class="text-center">Description</th>
         <th class="text-center">Blog Author</th>
         <th class="text-center" colspan="2">Action</th>
@@ -20,6 +21,7 @@
         <tr>
           <td><img height='100px' src='./controller/uploads/<?= $row["blogImage"] ?>'/></td>
           <td><?= $row["blogName"] ?></td>
+          <td><?= $row["blogTitle"] ?></td>
           <td><?= $row["blogsDesc"] ?></td>
           <td><?= $row["blogAuthor"] ?></td>
           <td><button class="btn btn-primary" style="height:40px" onclick="blogsEditForm('<?= $row['blogId'] ?>')">Edit</button></td>
@@ -57,12 +59,20 @@
               <input type="text" class="form-control" name="b_name" id="b_name" required>
             </div>
             <div class="form-group">
+              <label>Blog Title:</label>
+              <input type="text" class="form-control" name="blog_title" id="blog_title" required>
+                </div>
+            <div class="form-group">
               <label>Description:</label>
               <input type="text" class="form-control" name="b_desc" id="b_desc" required>
             </div>
             <div class="form-group">
               <label>Blogs Author:</label>
               <input type="text" class="form-control" name="b_author" id="b_author" required>
+            </div>
+            <div class="form-group">
+              <label>Blogs post date:</label>
+              <input type="date" class="form-control" name="b_post" id="b_post" required>
             </div>
 
             <div class="form-group">
