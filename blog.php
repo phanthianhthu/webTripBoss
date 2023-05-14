@@ -23,7 +23,7 @@
             <div class = "container">
                 <div class = "header-title">
                     <h1>Blog</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
+                    <p>Welcome to our blog! Here, we aim to provide you with informative and engaging content on a wide range of topics. Our blog is your go-to resource for inspiration, knowledge, and entertainment.</p>
                 </div>
             </div>
         </header>

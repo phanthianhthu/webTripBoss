@@ -123,7 +123,7 @@
                     <a href = "index.php" class = "site-brand">
                         Trip<span>Boss</span>
                     </a>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet voluptates maiores nam vitae iusto. Placeat rem sint voluptas natus exercitationem autem quod neque, odit laudantium reiciendis ipsa suscipit veritatis voluptate.</p>
+                    <p class = "text">Our trips are carefully crafted to offer you unforgettable experiences, taking you to breathtaking destinations and immersing you in diverse cultures and landscapes.</p>
                 </div>
 
                 <div class = "footer-item">

@@ -22,7 +22,7 @@
             <div class = "container">
                 <div class = "header-title">
                     <h1>Leave Your Footprints</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
+                    <p>Welcome to our trip description! Here, we invite you to embark on a journey of discovery, exploration, and adventure. Our trips are carefully crafted to offer you unforgettable experiences, taking you to breathtaking destinations and immersing you in diverse cultures and landscapes.</p>
                 </div>
                 <div class = "header-form">
                     <h2>Choose your Travel location:</h2>
